@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"  
+android:id="@+id/ScrollView" android:layout_width="fill_parent"  
+android:layout_height="wrap_content" android:scrollbars="vertical">  
+ 
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    >
+    
+    <TextView
+        android:id="@+id/textViewIP"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/videoip" />
+        
+    <EditText
+        android:id="@+id/editIP"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/ip_hint"
+        android:text="@string/ip" />
+    
+    
+	<TextView
+        android:id="@+id/videoporttextview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/videoport" />
+        
+    <EditText
+        android:id="@+id/videoportedit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/videoport_hint"
+        android:text="@string/port" />
+    
+    
+    <TextView
+        android:id="@+id/textCtrlPort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ctrlport" />
+
+    <EditText
+        android:id="@+id/editCtrlPort"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/Socketport_hint"
+        android:text="@string/Socketport" />
+	
+    <Button
+        android:id="@+id/button_go"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40.0dip"
+        android:text="@string/connect" 
+        android:textSize="20.0dip"
+        android:onClick="connectBtn"/> 
+    
+</LinearLayout>
+</ScrollView>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <apollorobot.hexapod.MjpegView
+        android:id="@+id/mjpegview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/flash_bg" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="14dp" />
+    <!-- android:layout_toLeftOf="@+id/SocketconnectBtn" -->
+
+    <Button
+        android:id="@+id/stampBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/leftBtn"
+        android:text="跺脚" />
+
+    <Button
+        android:id="@+id/rightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/socketconnectBtn"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/fowardBtn"
+        android:text="右" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar1"
+        android:layout_toLeftOf="@+id/rightBtn"
+        android:text="后" />
+
+    <Button
+        android:id="@+id/leftBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/backBtn"
+        android:layout_marginLeft="77dp"
+        android:layout_toRightOf="@+id/stampBtn"
+        android:text="左" />
+
+    <Button
+        android:id="@+id/fowardBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rightBtn"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/leftBtn"
+        android:text="前" />
+
+    <Button
+        android:id="@+id/socketconnectBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/leftBtn"
+        android:layout_marginBottom="64dp"
+        android:layout_toLeftOf="@+id/leftBtn"
+        android:text="连接" />
+
+    <Button
+        android:id="@+id/btnHeadLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/socketconnectBtn"
+        android:layout_alignBottom="@+id/socketconnectBtn"
+        android:layout_toLeftOf="@+id/fowardBtn"
+        android:text="左转头" />
+
+    <Button
+        android:id="@+id/btnHeadRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnHeadLeft"
+        android:layout_alignBottom="@+id/btnHeadLeft"
+        android:layout_alignLeft="@+id/rightBtn"
+        android:text="右转头" />
+
+</RelativeLayout>
