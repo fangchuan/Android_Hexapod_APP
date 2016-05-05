@@ -40,6 +40,8 @@ public class MainActivity extends Activity {
 	private Button SocketConnectBtn = null;
 	private Button turnheadleftbtn = null;
 	private Button turnheadrightbtn = null;
+	private Button standupbtn = null;
+	private Button sitdownbtn = null;
 	private InputStream is = null;
 	private OutputStream os = null;
 	public boolean is_connect = false;
@@ -60,6 +62,8 @@ public class MainActivity extends Activity {
     private byte[] COMM_STAMP =    { (byte) 0xAA, (byte) 0x01, (byte) 0x10,(byte) 0x07, (byte) 0x06, (byte) 0x48, (byte) 0xBB };//
     private byte[] COMM_LEFTHEAD = { (byte) 0xAA, (byte) 0x01, (byte) 0x10,(byte) 0x07, (byte) 0x09, (byte) 0x48, (byte) 0xBB };//
     private byte[] COMM_RIGHTHEAD= { (byte) 0xAA, (byte) 0x01, (byte) 0x10,(byte) 0x07, (byte) 0x0A, (byte) 0x48, (byte) 0xBB };//
+    private byte[] COMM_SITDOWN  = { (byte) 0xAA, (byte) 0x01, (byte) 0x10,(byte) 0x07, (byte) 0x07, (byte) 0x48, (byte) 0xBB };//
+    private byte[] COMM_STANDUP =  { (byte) 0xAA, (byte) 0x01, (byte) 0x10,(byte) 0x07, (byte) 0x08, (byte) 0x48, (byte) 0xBB };//
 //	private Handler handler = new Handler() {
 //		public void handleMessage(Message msg) {
 //			if(msg.what == UPDATE_UI)//更新照片
@@ -84,6 +88,8 @@ public class MainActivity extends Activity {
     	SocketConnectBtn = (Button)findViewById(R.id.socketconnectBtn);// Socket连接按键
     	turnheadleftbtn = (Button) findViewById(R.id.btnHeadLeft);
     	turnheadrightbtn = (Button) findViewById(R.id.btnHeadRight);
+    	standupbtn = (Button) findViewById(R.id.btnStandup);
+    	sitdownbtn = (Button) findViewById(R.id.btnSitdown);
     	speedseekbar  = (SeekBar)findViewById(R.id.seekBar1);// 进度条发消息给服务器
     	
     	// 获得传进来的Intent
@@ -214,20 +220,54 @@ public class MainActivity extends Activity {
      });
     
     //头向左转
-    turnheadleftbtn.setOnClickListener(new OnClickListener() {
+    turnheadleftbtn.setOnTouchListener(new OnTouchListener() {
 		
 		@Override
-		public void onClick(View v) {
-			SendCommand(COMM_LEFTHEAD);
+		public boolean onTouch(View v, MotionEvent event) {
+			switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:// 按下,发：buzzer:on
+                SendCommand(COMM_LEFTHEAD);
+                break;
+            case MotionEvent.ACTION_UP:  // // 松开,发：buzzer:off
+            	SendCommand(COMM_STOP);
+            default:
+                break;
+            }
+            return false;
 		}
 	});
     
     //头向右转
-    turnheadrightbtn.setOnClickListener(new OnClickListener() {
+    turnheadrightbtn.setOnTouchListener(new OnTouchListener() {
+		
+		@Override
+		public boolean onTouch(View v, MotionEvent event) {
+			switch (event.getAction()) {
+            case MotionEvent.ACTION_DOWN:// 按下,发：buzzer:on
+                SendCommand(COMM_RIGHTHEAD);
+                break;
+            case MotionEvent.ACTION_UP:  // // 松开,发：buzzer:off
+            	SendCommand(COMM_STOP);
+            default:
+                break;
+            }
+            return false;
+		}
+	});
+
+    standupbtn.setOnClickListener(new OnClickListener() {
 		
 		@Override
 		public void onClick(View v) {
-			SendCommand(COMM_RIGHTHEAD);
+			SendCommand(COMM_STANDUP);
+		}
+	});
+    
+    sitdownbtn.setOnClickListener(new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			SendCommand(COMM_SITDOWN);
 		}
 	});
 //    // 绑定进度条

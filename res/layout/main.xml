@@ -90,4 +90,21 @@
         android:layout_alignLeft="@+id/rightBtn"
         android:text="右转头" />
 
+    <Button
+        android:id="@+id/btnSitdown"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/socketconnectBtn"
+        android:layout_toLeftOf="@+id/leftBtn"
+        android:text="坐下" />
+
+    <Button
+        android:id="@+id/btnStandup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/fowardBtn"
+        android:layout_alignBottom="@+id/fowardBtn"
+        android:layout_toLeftOf="@+id/leftBtn"
+        android:text="站立" />
+
 </RelativeLayout>

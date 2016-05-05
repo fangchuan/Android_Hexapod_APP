@@ -35,8 +35,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="LogoInActivity"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+        <activity android:name="LogoInActivity">
                 <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
